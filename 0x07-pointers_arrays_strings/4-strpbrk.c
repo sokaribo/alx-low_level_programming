@@ -1,5 +1,4 @@
-#include "main.n"
-#include <stdio.h>
+#include "main.h"
 
 /**
  * _strpbrk - prints the consecutive character of s1 that are in s2.
