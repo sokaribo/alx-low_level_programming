@@ -7,7 +7,7 @@
  * @size: size of array
  * @c: char to initialize array with
  *
- * Return: a pointer to array or NULL if it fails
+ * Return: returns a pointer to the array or NULL if it fails
  *
  */
 char *create_array(unsigned int size, char c)
@@ -19,7 +19,7 @@ char *create_array(unsigned int size, char c)
 	{
 		return (NULL);
 	}
-	arr = (char *)malloc(sizeof(char) * size);
+	arr = malloc(sizeof(char) * size);
 	/* check if malloc was successful */
 	if (arr == NULL)
 		return (NULL);
