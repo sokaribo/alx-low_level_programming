@@ -3,41 +3,49 @@
 
 /**
  * argstostr - concatenates all the arguments of the program
- * @ac: arguments counter
+ * @ac: arguments count
  * @av: arguments vector
  *
  * Return: a pointer to a new string, or NULL if it fails
  */
 char *argstostr(int ac, char **av)
 {
-	char *str, *s;
-	int i, j, k, len = 0;
+	int i, j, k, size;
+	char *arg;
 
+	size = 0;
+	k = 0;
 	if (ac == 0 || av == NULL)
 		return (NULL);
-	for (i = 0; i < ac; i++)
+	i = 0;
+	while (i < ac)
 	{
-		s = av[i];
 		j = 0;
-		while (s[j++])
-			len++;
-		len++;
-	}
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	for (i = 0, j = 0; i < ac && j < len; i++)
-	{
-		s = av[i];
-		k = 0;
-		while (s[k])
+		while (av[i][j])
 		{
-			str[j] = s[k];
-			k++;
+			size++;
 			j++;
 		}
-		str[j] = '\n';
+		size++;
+		i++;
 	}
-	str[j] = '\0';
-	return (str);
+	arg = malloc((sizeof(char) * size) + 1);
+	if (arg == NULL)
+		return (NULL);
+	i = 0;
+	while (i < ac)
+	{
+		j = 0;
+		while (av[i][j])
+		{
+			arg[k] = av[i][j];
+			j++;
+			k++;
+		}
+		arg[k] = '\n';
+		k++;
+		i++;
+	}
+	arg[k] = '\0';
+	return (arg);
 }
