@@ -8,7 +8,7 @@
  *
  * Return: 0.
  */
-int main(int argc, char argv[])
+int main(int argc, char *argv[])
 {
 	int count, bytes;
 
@@ -26,7 +26,7 @@ int main(int argc, char argv[])
 	}
 	for (count = 0; count < bytes; count++)
 	{
-		printf("%.2hhx", *((char *)main + count));
+		printf("%02hhx", *((char *)main + count));
 		if (count < bytes - 1)
 			printf(" ");
 		else
